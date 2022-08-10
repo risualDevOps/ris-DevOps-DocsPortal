@@ -43,7 +43,11 @@ jobs:
         run: npm ci
         working-directory: 'portal/themes/geekdoc'
       
-      - name: Run Hugo
+      - name: run npm build
+        run: npm run build
+        working-directory: 'portal/themes/geekdoc'
+      
+      - name: run Hugo
         run: hugo
         working-directory: 'portal'
       
