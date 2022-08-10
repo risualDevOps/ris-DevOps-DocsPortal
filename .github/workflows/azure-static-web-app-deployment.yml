@@ -39,25 +39,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             
-      - name: Theme - Run npm ci
-        run: npm ci
+      - name: Theme - npm install, build and test
+        run: |
+          npm ci
+          npm run build --if-present
+          npm test
         working-directory: 'portal/themes/geekdoc'
-      
-      - name: Theme - Run npm build
-        run: npm run build
-        working-directory: 'portal/themes/geekdoc'
-      
+       
       - name: Run Hugo
         run: hugo
         working-directory: 'portal'
-      
-      - name: Deploy Static Files Locally
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: 'public'
-      
+        
+      - name: Publish Hugo Site
+        # You may pin to the exact commit or the version.
+        # uses: tcitry/publish-hugo-site@b39b3c37d0e183bc70f8736869200846ffb1458c
+        uses: tcitry/publish-hugo-site@v1.0
+        
       - name: Azure Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
