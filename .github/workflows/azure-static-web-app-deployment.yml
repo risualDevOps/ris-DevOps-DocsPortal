@@ -19,18 +19,21 @@ jobs:
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
-          
+      
+      # This step installs the lateest extended version of Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
       
+      # Installs node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '16'
       
+      # cache dependencies to speed up consecutive CI runs.
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
@@ -38,17 +41,20 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-            
+      
+      ## install all the required modules for the theme and build.
       - name: Theme - npm install and build
         run: |
           npm ci
           npm run build
         working-directory: 'portal/themes/geekdoc'
-       
+      
+      # Run hugo against repo
       - name: Run Hugo
         run: hugo
         working-directory: 'portal'
-                
+      
+      # deploy hugo to a public folder so we can simply push this to our Azure Static WebApp
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         # If you're changing the branch from main, 
@@ -58,7 +64,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-        
+      
+      # we dont want to build with Oryx as we've done the build work above.
+      # deploy to azure from the output folder of the last action.
       - name: Azure Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
