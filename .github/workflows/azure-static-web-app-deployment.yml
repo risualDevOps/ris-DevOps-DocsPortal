@@ -41,6 +41,7 @@ jobs:
             
       - name: run npm ci install
         run: npm ci
+        working-directory: '/portal/themes/geekdoc'
       
       - name: Build And Deploy
         id: builddeploy
