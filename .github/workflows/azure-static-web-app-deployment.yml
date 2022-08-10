@@ -39,11 +39,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             
-      - name: Theme - npm install, build and test
+      - name: Theme - npm install and build
         run: |
           npm ci
-          npm run build --if-present
-          npm test
+          npm run build
         working-directory: 'portal/themes/geekdoc'
        
       - name: Run Hugo
