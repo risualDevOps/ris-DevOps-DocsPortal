@@ -48,11 +48,16 @@ jobs:
       - name: Run Hugo
         run: hugo
         working-directory: 'portal'
-        
+                
       - name: Publish Hugo Site
         # You may pin to the exact commit or the version.
-        # uses: tcitry/publish-hugo-site@b39b3c37d0e183bc70f8736869200846ffb1458c
-        uses: tcitry/publish-hugo-site@v1.0
+        # uses: Skarlso/blog-publisher@684109a89c9155f1525097dfbcaef273371ffe62
+        uses: Skarlso/blog-publisher@v0.0.8
+        # with:
+          # The repository to publish to.
+          # repo: # default is 
+          # The branch to push to.
+          # branch: # optional, default is main
         
       - name: Azure Deploy
         id: builddeploy
