@@ -63,7 +63,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./portal/public
       
       # we dont want to build with Oryx as we've done the build work above.
       # deploy to azure from the output folder of the last action.
@@ -75,11 +75,11 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "/" # App source code path relative to repository root
+          app_location: "/portal/public" # App source code path relative to repository root
           skip_app_build: true
           api_location: "" # Api source code path relative to repository root - optional
           skip_api_build: true
-          output_location: "./public" # Built app content directory, relative to app_location - optional
+          output_location: "./portal/public" # Built app content directory, relative to app_location - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
