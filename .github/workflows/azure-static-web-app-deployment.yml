@@ -45,6 +45,7 @@ jobs:
       
       - name: Run Hugo
         run: hugo
+        working-directory: 'portal'
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
