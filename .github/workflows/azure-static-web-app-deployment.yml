@@ -49,15 +49,11 @@ jobs:
         run: hugo
         working-directory: 'portal'
                 
-      - name: Publish Hugo Site
-        # You may pin to the exact commit or the version.
-        # uses: Skarlso/blog-publisher@684109a89c9155f1525097dfbcaef273371ffe62
-        uses: Skarlso/blog-publisher@v0.0.8
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          # The repository to publish to.
-           repo: risualDevOps/ris-DevOps-DocsPortal
-          # The branch to push to.
-          # branch: # optional, default is main
+          personal_token: ${{ secrets.TOKEN }}
+          publish_dir: /public
         
       - name: Azure Deploy
         id: builddeploy
@@ -67,7 +63,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "" # App source code path relative to repository root
+          app_location: "/public" # App source code path relative to repository root
           skip_app_build: true
           api_location: "" # Api source code path relative to repository root - optional
           skip_api_build: true
