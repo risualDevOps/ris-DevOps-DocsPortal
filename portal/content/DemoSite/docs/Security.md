@@ -1,7 +1,7 @@
 ---
 title: Security
 type: docs
-weight: 2
+weight: 3
 geekdocHidden: false
 ---
 
