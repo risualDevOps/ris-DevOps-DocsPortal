@@ -64,7 +64,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./portal/public
-      
+          publish_branch: offline-portal  # default: gh-pages
+          
       # we dont want to build with Oryx as we've done the build work above.
       # deploy to azure from the output folder of the last action.
       - name: Azure Deploy
