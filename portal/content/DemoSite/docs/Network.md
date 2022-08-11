@@ -5,8 +5,6 @@ weight: 3
 geekdocHidden: false
 ---
 
-# Networking
-
 Demo page for the Demo Site Networking section.
 
 ## Mesh Topology:
