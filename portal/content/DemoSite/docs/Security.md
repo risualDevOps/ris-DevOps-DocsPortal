@@ -1,5 +1,5 @@
 ---
-title: DemoSite ASP .Net Security
+title: Security
 type: docs
 weight: 9
 geekdocHidden: false

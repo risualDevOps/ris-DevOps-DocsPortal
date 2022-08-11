@@ -1,5 +1,5 @@
 ---
-title: DemoSite Documentation
+title: Design
 type: docs
 weight: 10
 geekdocHidden: false

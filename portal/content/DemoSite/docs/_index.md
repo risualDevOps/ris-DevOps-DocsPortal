@@ -1,4 +1,4 @@
 ---
-title: Demo Site Documentation
+title: Documentation
 weight: -20
 ---
