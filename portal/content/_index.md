@@ -6,7 +6,7 @@ title: risuals Docs As Code Portal
 <!-- markdownlint-disable MD033 -->
 
 <span class="badge-placeholder">[![Hugo Version](https://img.shields.io/badge/hugo-0.101.0-blue.svg)](https://gohugo.io)</span>
-<span class="badge-placeholder">[![Hugo Version](https://img.shields.io/badge/geekdoc-0.34.1-purple.svg)](https://gohugo.io)</span>
+<span class="badge-placeholder">[![Hugo Version](https://img.shields.io/badge/geekdoc-0.34.1-purple.svg)]([https://gohugo.io](https://geekdocs.de/))</span>
 
 <br/><br/>
 ![image](https://user-images.githubusercontent.com/17493722/184113535-46b19ba3-77b4-43e8-b3de-d872f4c944cb.png)
