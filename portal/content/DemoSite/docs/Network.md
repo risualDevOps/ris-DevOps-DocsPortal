@@ -1,7 +1,7 @@
 ---
 title: Network
 type: docs
-weight: 3
+weight: 2
 geekdocHidden: false
 ---
 
