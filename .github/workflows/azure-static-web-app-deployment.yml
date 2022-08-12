@@ -61,6 +61,7 @@ jobs:
         uses: jakejarvis/hugo-build-action@master  # ...or replace 'master' with a full version tag, such as: v0.64.1
         with:
           args: --buildDrafts
+          working-directory: 'portal'
           
       # we dont want to build with Oryx as we've done the build work above.
       # deploy to azure from the output folder of the last action.
