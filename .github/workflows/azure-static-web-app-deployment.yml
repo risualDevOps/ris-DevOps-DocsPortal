@@ -54,7 +54,7 @@ jobs:
       # Run hugo against repo
       - name: Run Hugo
         run: hugo
-        working-directory: 'portal/*'
+        working-directory: 'portal/'
           
       # we dont want to build with Oryx as we've done the build work above.
       # deploy to azure from the output folder of the last action.
