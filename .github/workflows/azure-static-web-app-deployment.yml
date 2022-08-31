@@ -59,7 +59,7 @@ jobs:
       # we dont want to build with Oryx as we've done the build work above.
       # deploy to azure from the output folder of the last action.
       - name: Azure Deploy
-        id: builddeploy
+        id: deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_DESERT_0A4880B03 }}
