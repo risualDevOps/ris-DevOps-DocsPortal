@@ -54,7 +54,7 @@ jobs:
       # Run hugo against repo
       - name: Run Hugo
         run: hugo
-        working-directory: 'portal'
+        working-directory: 'portal/*'
           
       # we dont want to build with Oryx as we've done the build work above.
       # deploy to azure from the output folder of the last action.
@@ -70,6 +70,7 @@ jobs:
           skip_app_build: true
           api_location: "" # Api source code path relative to repository root - optional
           skip_api_build: true
+          output_location: "./portal/public" # Built app content directory, relative to app_location - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
